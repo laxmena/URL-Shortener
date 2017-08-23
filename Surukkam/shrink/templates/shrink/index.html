@@ -1,0 +1,9 @@
+<h4>Shorten URL's</h4>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'surukkam' %}" method="get">
+{% csrf_token %}
+<input type="text" name="url">
+<input type="submit" value="Submit" />
+</form>
