@@ -1,9 +1,40 @@
+ <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet"> 
+<style type="text/css">
+	div{
+		position: absolute;
+		top: 35%;
+		bottom: 65%;
+		text-align: center;
+		align-content: center;
+		width: 100%;
+		font-size: 1.7em;
+		font-family: 'Encode Sans Condensed', sans-serif;
+	}
+	form {
+		font-size: 1.7em;
+		font-family: 'Encode Sans Condensed', sans-serif;
+	}
+	body{
+
+		background: #6BCAE2;
+	}
+	.custom{
+		font-family: 'Encode Sans Condensed', sans-serif;
+	}
+</style>
+<div>
 <h4>Shorten URL's</h4>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'surukkam' %}" method="get">
-{% csrf_token %}
-<input type="text" name="url">
-<input type="submit" value="Submit" />
+	{% csrf_token %}
+	<input type="text" name="url" class="custom"><br/><br/>
+	<input type="submit" value="Submit" />
 </form>
+{% if shrinkedURL %} 
+<span class="custom">
+	Shortened URL: <strong><a href="http://localhost:8000/{{shrinkedURL}}">http://localhost:8000/{{shrinkedURL}}</a></strong> 
+</span>
+{% endif %}
+</div>

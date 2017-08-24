@@ -25,7 +25,7 @@ def shrink(request):
 	except URLs.DoesNotExist:
 		entry = URLs(shrinkedURL = shrinkedURL, targetURL=url)
 		entry.save()
-	return render(request, 'shrink/output.html',{
+	return render(request, 'shrink/index.html',{
 			'shrinkedURL':shrinkedURL
 		})
 
